@@ -41,6 +41,21 @@
   html {
     @apply scrollbar-hide;
   }
+
+  dialog:modal {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+
+  dialog:-internal-dialog-in-top-layer::backdrop {
+    @apply no-scroll;
+  }
+
+  polyline,
+  path {
+    fill: inherit;
+    stroke: inherit;
+  }
 }
 
 @layer utilities {
@@ -51,5 +66,40 @@
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  .pseudo-underline {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: auto;
+      right: 0;
+      width: 0;
+      bottom: -2px;
+      display: block;
+      border-bottom-color: currentColor;
+      border-bottom-width: 1.5px;
+      border-bottom-style: solid;
+    }
+  }
+
+  .pseudo-underline--show,
+  .pseudo-underline--hover:hover {
+    &::before {
+      @apply left-0 right-auto w-full;
+    }
+  }
+
+  .pseudo-underline--transition {
+    &::before {
+      @apply transition-all;
+      @apply duration-300;
+    }
   }
 }

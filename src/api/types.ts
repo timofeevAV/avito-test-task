@@ -1,4 +1,14 @@
-type Advertisment = {
+interface GetListResponse<T> {
+  first: number;
+  prev: number | null;
+  next: number | null;
+  last: number;
+  pages: number;
+  items: number;
+  data: T[];
+}
+
+export type Advertisement = {
   /* Уникальный идентификатор. */
   id: string;
   /* Название. */
@@ -16,6 +26,7 @@ type Advertisment = {
   /* Ссылка на изображение. */
   imageUrl?: string;
 };
+export type AdvertisementsResponse = GetListResponse<Advertisement>;
 
 export const OrderStatus = {
   Created: 0,
@@ -27,7 +38,7 @@ export const OrderStatus = {
   Refund: 6,
 } as const;
 
-type OrderItem = Advertisment & { count: number };
+export type OrderItem = Advertisement & { count: number };
 
 export type Order = {
   /* Уникальный идентификатор. */
@@ -45,12 +56,13 @@ export type Order = {
   /* Сумма заказа */
   total: number;
 };
+export type OrdersResponse = GetListResponse<Order>;
 
-export type Image = {
-  /* Уникальный идентификатор. */
-  id: number;
-  /* Ссылка. */
-  url: string;
-  /* Название. */
-  name: string;
+export type FilterOption = {
+  label?: string;
+  value: string | number;
+};
+
+export type FilterAdvertisementOption = FilterOption & {
+  id: string;
 };

@@ -1,0 +1,13 @@
+# Use a node base image
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install json-server
+RUN npm install -g json-server
+
+# Expose port 3000 for json-server
+EXPOSE 3000
+
+# Command to run the server
+CMD ["json-server", "--watch", "/app/data/db.json", "--host", "0.0.0.0", "--port", "3000"]
