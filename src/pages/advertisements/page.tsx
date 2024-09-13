@@ -117,8 +117,8 @@ export default function AdvertisementsPage() {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="!mx-auto w-full max-w-96"
         />
-        <div className="flex items-center justify-between px-4">
-          <div className="flex gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2 px-4">
+          <div className="flex flex-wrap gap-2">
             <button
               className="inline-flex items-center gap-1 hover:opacity-80 md:hidden"
               onClick={() => {
@@ -141,8 +141,9 @@ export default function AdvertisementsPage() {
           <Button
             onClick={handleDialogOpen}
             iconLeft={<Icon id="icon-plus" />}
+            className="-sm:h-auto -sm:grow -sm:!p-2 -sm:text-xs"
           >
-            <span className="hidden sm:inline">Создать объявление</span>
+            <span>Создать объявление</span>
           </Button>
         </div>
 

@@ -6,7 +6,6 @@ import {
   Section,
   GridItem,
   Pagination,
-  Icon,
 } from '@/components/common';
 import { OrderCard } from '@/components/orders';
 import FilterSection from '@/components/orders/filter-section';
@@ -116,22 +115,23 @@ export default function OrdersPage() {
 
   return (
     <Section className="space-y-3">
-      <h1>
-        {advertisementId
-          ? `Заказы с товаром "${advertisementId}":`
-          : 'Все заказы:'}
-      </h1>
-      <div className="flex flex-wrap-reverse items-center justify-between">
-        <FilterSection onFilterChange={onFilterChange} />
-        {hasFilters && (
-          <button
-            onClick={onResetFilters}
-            className="inline-flex items-center lowercase text-accent-foreground hover:opacity-80"
-          >
-            <Icon id="icon-cross" />
-            Сбросить фильтры
-          </button>
-        )}
+      <div className="space-y-3 px-2">
+        <h1 className="text-xl font-semibold">
+          {advertisementId
+            ? `Заказы с товаром "${advertisementId}":`
+            : 'Все заказы:'}
+        </h1>
+        <div className="flex flex-wrap-reverse items-center justify-between">
+          <FilterSection onFilterChange={onFilterChange} />
+          {hasFilters && (
+            <button
+              onClick={onResetFilters}
+              className="inline-flex items-center lowercase text-muted-foreground hover:text-accent-foreground"
+            >
+              Сбросить фильтры
+            </button>
+          )}
+        </div>
       </div>
       <Suspense fallback={<GridSkeleton />}>
         <LazyGrid className="divide-y divide-border">

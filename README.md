@@ -21,7 +21,7 @@ npm install
 npm run start
 ```
 
-- frontend: http://localhost
+- frontend: http://localhost:5173
 - api: http://localhost:3000
 
 ## С помощью докера
@@ -45,6 +45,9 @@ docker-compose up
 ```sh
 docker-compose up --build
 ```
+
+- frontend: http://localhost
+- api: http://localhost:3000
 
 # Проблемы
 
