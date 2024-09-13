@@ -75,7 +75,7 @@ export default function Dialog({ isOpen, closeDialog, ...props }: DialogProps) {
         <Icon id="icon-cross" />
         <span className="sr-only">Close</span>
       </button>
-      <div className="h-full overflow-y-auto rounded-lg bg-background p-4 pt-8 shadow-lg sm:max-h-[calc(100vh-2em)]">
+      <div className="overflow-y-auto rounded-lg bg-background p-4 pt-8 shadow-lg sm:max-h-[calc(100vh-2em)] -sm:h-full">
         {props.children}
       </div>
     </dialog>
